@@ -1,10 +1,21 @@
-import './App.css';
+
+import { BrowserRouter, Routes , Route } from "react-router-dom";
+import LandingPage from './components/LandingPage'
+import Home from './components/Home';
+import CreateRecipe from './components/CreateRecipes'
+import RecipesDetail from './components/RecipesDetail'
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <BrowserRouter>
+      
+        <Route exact path="/"  component={LandingPage}/>
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/CreateRecipe" component={CreateRecipe} />
+        <Route exact path="/recipe/:id" component={RecipesDetail} />
+      
+    </BrowserRouter>
   );
 }
 

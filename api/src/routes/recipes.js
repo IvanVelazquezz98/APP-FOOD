@@ -50,7 +50,6 @@ router.post("/create", async (req,res,next) => {
             healthScore,
             instructions,
             image,
-            diets
         })
 
         const proms = diets.map(diet => recipeCreate.addDiet(diet));
