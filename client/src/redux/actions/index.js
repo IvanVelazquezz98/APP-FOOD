@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import {GET_RECIPES , GET_DIETS ,GET_DETAIL} from './actionTypes'
+import {GET_RECIPES , GET_DIETS , GET_DETAIL , SEARCH_RECIPE , CLEAR_PAGE} from '../../redux/actions/actionTypes'
 
 //async await
 export function getFullRecipes(){
@@ -23,7 +23,7 @@ export function getDiets(){
         try {
             var json = await axios.get("http://localhost:3001/diets")
             return dispatch({
-                type: "GET_DIETS",
+                type: GET_DIETS,
                 payload: json.data
             })
         } catch (error) {
@@ -39,7 +39,7 @@ export function getRecipes(){
              axios.get("http://localhost:3001/recipes")
             .then(response => {
                 return dispatch({
-                    type: "GET_RECIPES",
+                    type: GET_RECIPES,
                     payload: response.data
                 })
     })
@@ -47,12 +47,39 @@ export function getRecipes(){
 
 export function getDetail(id){
     return function(dispatch){
+        try{
         axios.get('http://localhost:3001/recipes/' + id)
         .then(response => {
             return dispatch ({
-                type: "GET_DETAIL",
+                type: GET_DETAIL,
                 payload: response.data
             })
         })
+    } catch (error) {
+    console.log(error)
+
+        }
+    }
+}
+
+export function searchRecipe(name){
+    return async function(dispatch){
+        try {
+            axios.get('http://localhost:3001/recipes?name=' + name)
+            .then(response => {
+                return dispatch ({
+                    type: SEARCH_RECIPE,
+                    payload: response.data
+                })
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export function clearPage(){
+    return {
+        type: CLEAR_PAGE
     }
 }

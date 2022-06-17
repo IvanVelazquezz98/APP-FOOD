@@ -1,0 +1,8 @@
+.barra {
+    list-style-type: none;
+    text-align: center;
+    display: inline-flex;
+    border: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+}

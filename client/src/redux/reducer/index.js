@@ -7,6 +7,7 @@ const initialState = {
 
 
 
+
  export default function rootReducer(state = initialState , action){
     switch (action.type) {
         case "GET_RECIPES":
@@ -29,7 +30,22 @@ const initialState = {
                     ...state,
                     detail : action.payload
                 }
-            default: return state
+
+            case "SEARCH_RECIPE":
+                return {
+                    ...state,
+                    allRecipes: action.payload
+                }
+                
+            case "CLEAR_PAGE":
+                return {
+                    ...state,
+                    allRecipes:[],
+                    copyRecipes:[],
+                    detail: []
+                } 
+
+                default: return state
         }
     }
 
