@@ -14,13 +14,30 @@ export default function SearchBar({title}){
         e.preventDefault()
         setName(e.target.value)
         console.log(name)
+       
     }
 
-     function handleSubmit(e){
-        e.preventDefault()
-        dispatch(searchRecipe(name))
-        
-    }
+     //function handleSubmit(e){
+       // e.preventDefault()
+        //dispatch(searchRecipe(name))
+        //setName("")
+     //}
+      function handleSubmit(e) { 
+            e.preventDefault(); 
+            if (!name) { 
+              alert("ingrese un nombre") 
+            } else { 
+              
+            dispatch(searchRecipe(name));    
+            setName(e.target.value); 
+            setName("") 
+        console.log(e)
+             
+         
+              
+            } 
+          }
+    
 
   
     return (
@@ -30,4 +47,4 @@ export default function SearchBar({title}){
             <button  type="submit"  onClick={(e) => handleSubmit(e)}>Buscar</button>
             </div>
             )
-}
+    }
