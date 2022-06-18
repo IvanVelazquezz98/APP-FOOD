@@ -78,6 +78,38 @@ export function searchRecipe(name){
     }
 }
 
+export function filteredByDiets(payload){ 
+    return {
+        type: "FILTERED_BY_DIETS",
+        payload
+    }
+}
+
+export function orderByTitle(payload){
+    return {
+        type: "ORDER_BY_TITLE",
+        payload
+    }
+}
+
+export function orderByScore(payload){
+    return {
+        type: "ORDER_BY_SCORE",
+        payload
+    }
+}
+
+export function postRecipe(payload){
+    return async function(dispatch){
+        try {
+            var json = await axios.post(`http://localhost:3001/recipes/create`, payload)
+            return json
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export function clearPage(){
     return {
         type: CLEAR_PAGE

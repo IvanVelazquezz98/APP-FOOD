@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { clearPage , getRecipes } from "../../redux/actions";
 
 
-export default function SearchBar({title}){
+export default function SearchBar({title , setCurrentPage}){
     const dispatch = useDispatch()
     const [name, setName] = useState("")
     
@@ -22,21 +22,19 @@ export default function SearchBar({title}){
         //dispatch(searchRecipe(name))
         //setName("")
      //}
-      function handleSubmit(e) { 
-            e.preventDefault(); 
-            if (!name) { 
-              alert("ingrese un nombre") 
-            } else { 
-              
-            dispatch(searchRecipe(name));    
-            setName(e.target.value); 
-            setName("") 
-        console.log(e)
-             
+     function handleSubmit(e){ 
+        e.preventDefault(); 
+        if(!name){ 
+        alert("ingrese un nombre") 
+        }else{ 
          
-              
-            } 
-          }
+        dispatch(searchRecipe(name))
+        setName(e.target.value); 
+        setName("") 
+        setCurrentPage(1)
+        console.log(e)
+        } 
+        }
     
 
   
