@@ -99,7 +99,16 @@ export function orderByScore(payload){
     }
 }
 
-
+export function postRecipe(payload){
+    return async function(dispatch){
+        try {
+            var json = await axios.post(`http://localhost:3001/recipes/create`, payload)
+            return json
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 
 export function clearPage(){
     return {

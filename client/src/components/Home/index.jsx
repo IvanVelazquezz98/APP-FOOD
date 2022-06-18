@@ -95,7 +95,9 @@ import CreateRecipe from '../CreateRecipes'
         </div>
 
         <div> 
-            
+            <Link to="/CreateRecipe">
+            <button> Created Recipe </button>
+            </Link>
                 
         </div>          
         <div>
