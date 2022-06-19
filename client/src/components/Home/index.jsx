@@ -11,7 +11,7 @@ import { useDispatch , useSelector } from 'react-redux';
 import Card from '../Cards'
 import SearchBar from '../../components/SearchBar';
 import Paginado from './paginado';
-import CreateRecipe from '../CreateRecipes'
+import styles from '../Home/Home.module.css'
 
 
  export default function Home() {
@@ -70,7 +70,8 @@ import CreateRecipe from '../CreateRecipes'
 
     return (
     <>
-        <div>
+    <div className={styles.background}>
+        <div className={styles.firstContainer}>
             <button onClick={handleReload}>HOME</button>
         </div>
         <div>
@@ -100,8 +101,9 @@ import CreateRecipe from '../CreateRecipes'
             </Link>
                 
         </div>          
-        <div>
-            <Paginado recipesPerPage={recipesPerPage}
+        <div className={styles.barra}>
+            <Paginado 
+             recipesPerPage={recipesPerPage}
                 allRecipes={allRecipes.length} 
                paginado={paginado}>
             </Paginado>
@@ -110,12 +112,13 @@ import CreateRecipe from '../CreateRecipes'
         <div>
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>
-        <div>
-            <div>
+        <div  >
+            <div className={styles.recipeContainer}>
                 {currentRecipes?.map(recipe => {
                     return (
                         <Link  to={`/recipe/${recipe.id}`}>
-                          <Card image={recipe.image}
+                          <Card className={styles.image}
+                                image={recipe.image}
                                 title={recipe.title} 
                                 diets={recipe.diets.map(r => <p >{r.name}</p>)} 
                                 key={recipe.id} >
@@ -127,6 +130,8 @@ import CreateRecipe from '../CreateRecipes'
             </div> 
   
         </div>
+        
+    </div>
     </>
      )
 
