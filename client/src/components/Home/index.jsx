@@ -131,6 +131,11 @@ import styles from '../Home/Home.module.css'
                     })
                 }
             </div> 
+            <Paginado 
+             recipesPerPage={recipesPerPage}
+             allRecipes={allRecipes.length} 
+             paginado={paginado}>
+            </Paginado>
   
         </div>
         
