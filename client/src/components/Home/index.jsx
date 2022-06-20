@@ -14,6 +14,7 @@ import Paginado from './paginado';
 import styles from '../Home/Home.module.css'
 
 
+
  export default function Home() {
     const dispatch = useDispatch()
 
@@ -72,16 +73,16 @@ import styles from '../Home/Home.module.css'
     <>
     <div className={styles.background}>
         <div className={styles.firstContainer}>
-            <button onClick={handleReload}>HOME</button>
-        </div>
-        <div>
-            <select onChange={e => handleSortedRecipesTitle(e)}>
+            <button className={styles.home} onClick={handleReload}>HOME</button>
+        
+        <div className={styles.imputContainer}>
+            <select  onChange={e => handleSortedRecipesTitle(e)}>
                 <option value="" >Select Order Name</option>
                 <option value="" >Disordered</option>
                 <option value= "Asc">Ascendant</option>
                 <option value ="des">Descendant</option>
             </select>
-            <select onChange={e => handleSortedRecipesScore(e)}>
+            <select  onChange={e => handleSortedRecipesScore(e)}>
                 <option value="" >Select Health Score</option> 
                 <option value="MAXHS">Max HealthScore</option>
                 <option value="MINHS">Min HealthScore</option>
@@ -95,32 +96,34 @@ import styles from '../Home/Home.module.css'
                 </select>
         </div>
 
-        <div> 
+        <div className={styles.createRecipe}> 
             <Link to="/CreateRecipe">
-            <button> Created Recipe </button>
+            <button className={styles.botonCreateRecipe}> Created Recipe </button>
             </Link>
                 
-        </div>          
-        <div className={styles.barra}>
+        </div>
+         </div>         
+        <div  >
             <Paginado 
              recipesPerPage={recipesPerPage}
-                allRecipes={allRecipes.length} 
-               paginado={paginado}>
+             allRecipes={allRecipes.length} 
+             paginado={paginado}>
             </Paginado>
         </div>
             
-        <div>
+        <div  >
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>
+        
         <div  >
             <div className={styles.recipeContainer}>
                 {currentRecipes?.map(recipe => {
                     return (
-                        <Link  to={`/recipe/${recipe.id}`}>
-                          <Card className={styles.image}
+                        <Link className={styles.link} to={`/recipe/${recipe.id}`}>
+                          <Card 
                                 image={recipe.image}
                                 title={recipe.title} 
-                                diets={recipe.diets.map(r => <p >{r.name}</p>)} 
+                                diets={recipe.diets.map(r => <p  className={styles.diets}> {r.name}</p>)} 
                                 key={recipe.id} >
                            </Card>
                         </Link>

@@ -15,8 +15,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: baseline;
-    height: 6rem;
-    padding: 1rem;
+    height: 4rem;
+    padding: 3.5rem;
     
     margin-bottom: 1rem;
 }
@@ -28,54 +28,104 @@
     text-decoration: none;
 }
 
-.image {
-    width: 6rem;
-    height: 6rem;
+
+
+.link {
+    text-decoration: none;
 }
-.image:hover {
-    background: #000000;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #43d318, 0 0 10px #128f0b, 0 0 20px #78c247;
+
+.diet {
+    display: inline;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 18rem; 
+    height: 60vh;
+    align-items: center;
+    border-width: 0.5rem;
+    border-color: #ffff51;
+    border: #f8db34;
+    border-radius: 12px;
+    transition: transform .5s;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 2px;
+    margin-left: 2px;
+    background-color: transparent ;
+    text-decoration: none;
+
+
+    
+}
+
+.imputContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createRecipe{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.botonCreateRecipe{
+    text-decoration:none;
+    font-weight:10px;
+    font-size:10px;
+    color:#080101;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    background-color:#f8db34;
+    border-radius: 00.5rem;
+    transition: transform .7s;
+    border: none;
+}
+
+.botonCreateRecipe:hover{
+    transform: scale(1.05) ;
+    background:#ffff51;
+    box-shadow: 0 0 10px #080808 ;
     transition-delay: .1s;
-}
-
-
-
-.barra {
-    list-style-type: none;
-    text-align: center;
-    display: inline-block;
-    border: rgb(255, 255, 255);
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    flex-direction: row;
-    border: 1px solid rgb(255, 255, 255);
-    color: rgb(17, 17, 10);
+    color: rgb(3, 3, 1);
     
-    
-    
-    padding: 1px 1px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    margin: 0 4px;
-    text-align: center;
-    text-align: left;
-    flex-direction: row;
-    background-color: #f8db34;
+}
+
+.home{
+
+    text-decoration:none;
+    font-weight:12px;
+    font-size:12px;
+    color:#080101;
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:12px;
+    padding-right:12px;
+    background-color:#f8db34;
+    border-radius: 00.5rem;
+    transition: transform .7s;
+    border-color: #080101;
+   
+}
+
+.home:hover{
+    transform: scale(1.05) ;
+        background:#ffff51;
+        box-shadow: 0 0 10px #0c0c0b ;
+        transition-delay: .2s;
+        color: rgb(7, 7, 1);
 }
 
 
 
-.barra li a.activo {
-    color: rgb(17, 13, 13);
-    border-radius: 5px;
-}
 
-.barra li a:hover:not(.activo){
-    background-color: rgb(255, 255, 255);
-}
 
-.barra li a:hover{
-    background-color: rgb(255, 255, 255);
-}
+

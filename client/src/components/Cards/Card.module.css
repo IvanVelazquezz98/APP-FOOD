@@ -36,6 +36,7 @@
     justify-content: center;
     text-align: center;
     text-decoration: none;
+    border: #ffff51;
    
 }
 
@@ -50,6 +51,7 @@
     
     color: #080800;
     flex-direction: row;
+    text-decoration: none;
     text-decoration: none;
 }
 
@@ -68,7 +70,4 @@
     width: 18rem;
     height: 200;
     border-radius: 10px;
-}
-a:link,a:visited,a:actived{
-    text-decoration: none;
 }

@@ -4,6 +4,7 @@ import { useDispatch  } from "react-redux";
 import { searchRecipe } from "../../redux/actions"
 import { Link } from 'react-router-dom';
 import { clearPage , getRecipes } from "../../redux/actions";
+import styles from '../SearchBar/SearchBar.module.css'
 
 
 export default function SearchBar({title , setCurrentPage}){
@@ -39,10 +40,10 @@ export default function SearchBar({title , setCurrentPage}){
 
   
     return (
-        <div >
+        <div className={styles.searchContainer}>
             
-            <input type="text" placeholder="Search Recipe..." onChange={(e) => handleInputChange(e)}></input>
-            <button  type="submit"  onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <input className={styles.imput} type="text" placeholder="Search Recipe..." onChange={(e) => handleInputChange(e)}></input>
+            <button className={styles.boton} type="submit"  onClick={(e) => handleSubmit(e)}>Buscar</button>
             </div>
             )
     }
