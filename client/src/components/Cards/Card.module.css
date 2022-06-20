@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 18rem; 
-    height: 60vh;
+    height: 72vh;
     align-items: center;
     border-width: 0.5rem;
     border-color: #ffff51;
@@ -68,6 +68,7 @@
 
 .imagen {
     width: 18rem;
-    height: 200;
+    height: 13rem;
     border-radius: 10px;
+    object-fit: cover;
 }

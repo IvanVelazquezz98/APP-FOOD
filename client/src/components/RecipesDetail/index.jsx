@@ -5,6 +5,8 @@ import { useDispatch , useSelector } from "react-redux"
 import { useEffect , useState} from "react";
 import { getDetail , clearPage } from '../../redux/actions'
 import styles from '../RecipesDetail/RecipesDetail.module.css'
+
+
 function RecipesDetail (id) {
 
     const dispatch = useDispatch()
@@ -31,22 +33,22 @@ function RecipesDetail (id) {
                 
                 
             {
-                (detailRecipe.name ) ? 
+                (detailRecipe.length == 0 ) ? 
                    <div >
                        <p>Cargando ...</p>
                     </div> 
                 :
                     <div className={styles.innerContainer}>
-                        <img className={styles.imagen} src={detailRecipe?.image} alt="No Image Found"/>
+                        <img className={styles.imagen} src={detailRecipe.image ? (detailRecipe.image) : (<img src="https://shorturl.ae/eEB8K" alt="img plate" />)} alt="img recipe" /> 
                         <h1 >{detailRecipe.title}</h1>
                         <h3 className={styles.title}>Summary</h3>
-                        <p className={styles.content} >{detailRecipe.summary}</p>                         
+                        <p className={styles.content} >{detailRecipe.summary ? (detailRecipe.summary) : (<p>-</p>) }</p>                         
                         <h3 className={styles.title} >Puntuación de salud</h3>
-                        <p className={styles.content}>{detailRecipe.healthScore}</p>
+                        <p className={styles.content}>{detailRecipe.healthScore  ? (detailRecipe.healthScore) : (<p>-</p>)}</p>
                         <h3 className={styles.title} >Dietas</h3>
                         <p className={styles.content}>{detailRecipe.diets.map(r => (<li>{r.name} </li>))}</p>
                         <h3 className={styles.title}>Instrucciones</h3>
-                        <p className={styles.content}>{detailRecipe?.instructions}</p>
+                        <p className={styles.content}>{detailRecipe.instructions ? (detailRecipe.instructions) : (<p>-</p>) }</p>
                     </div>
                     
                 

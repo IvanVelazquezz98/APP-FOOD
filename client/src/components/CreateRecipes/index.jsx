@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link  } from "react-router-dom"
+import { Link , useHistory } from "react-router-dom"
 import { postRecipe } from "../../redux/actions"
 import { useDispatch , useSelector } from "react-redux"
-
+import styles from '../CreateRecipes/CreateRecipes.module.css'
 
 
 function validate(post){
@@ -17,8 +17,11 @@ function validate(post){
     return errors
 }
 
+   
+
 export default function RecipeCreate(){
     const dispatch = useDispatch()
+    const history = useHistory()
     const allDiets = useSelector((state) => state.diets)
 
     const [errors, setErrors] = useState({})
@@ -82,66 +85,73 @@ export default function RecipeCreate(){
                 image: "",
                 diets: []
             })
+            history.push('/home')
         }
     }
 
     return(
-        <div >
+        <div className={styles.firstContainer}>
+            <div >
             <Link to="/home" >
-                <button >HOME</button>
+                <button className={styles.home} >HOME</button>
             </Link>
-            <h1 >Crea tu propia Receta</h1>
+            </div>
+            <h1 className={styles.recipeContainer}>Create your own Recipe</h1>
             <form >
-                <div >
-                    <label >Título</label>
-                    <input  type="text" value={post.title} name="title" onChange={(e) => handleChange(e)} ></input>
+                
+                <div  className={styles.recipeContainer}>
+                    <label >Títle</label>
+                    <input className={styles.imput} type="text" value={post.title} name="title" onChange={(e) => handleChange(e)} ></input>
                     {errors.title && (<p >{errors.title}</p>)}
                 </div>
-                <div >
-                    <label >Resumen</label>
-                    <textarea  type="text" value={post.summary} name="summary" maxLength="1000" onChange={(e) => handleChange(e)}></textarea>
+                <div className={styles.recipeContainer}>
+                    <label >Summary</label>
+                    <textarea className={styles.imput} type="text" value={post.summary} name="summary" maxLength="1000" onChange={(e) => handleChange(e)}></textarea>
                     {errors.summary && (<p>{errors.summary}</p>)}
                 </div>
-                <div >
-                    <label >Puntuación en API Spoonacular</label>
-                    <input type="range" min="0" max="100" value={post.spoonacularScore} name="spoonacularScore" onChange={(e) => handleChange(e)}></input>
+                <div className={styles.recipeContainer}>
+                    <label >Scoring in API Spoonacular</label>
+                    <input className={styles.imput} type="range" min="0" max="100" value={post.spoonacularScore} name="spoonacularScore" onChange={(e) => handleChange(e)}></input>
                     {<p >{post.spoonacularScore}</p>}
                 </div>
-                <div >
-                    <label>Puntuación Salud</label>
-                    <input  type="range" min="0" max="100" value={post.healthScore} name="healthScore" onChange={(e) => handleChange(e)}></input>
+                <div className={styles.recipeContainer} >
+                    <label>Health Score</label>
+                    <input className={styles.imput}  type="range" min="0" max="100" value={post.healthScore} name="healthScore" onChange={(e) => handleChange(e)}></input>
                     {<p >{post.healthScore}</p>}
                 </div>
-                <div >
-                    <label>Instrucciones</label>
-                    <textarea  type="text" value={post.instructions} name="instructions" onChange={(e) => handleChange(e)}></textarea>
+                <div className={styles.recipeContainer}>
+                    <label>Instructions</label>
+                    <textarea className={styles.imput} type="text" value={post.instructions} name="instructions" onChange={(e) => handleChange(e)}></textarea>
                     {errors.instructions && (<p >{errors.instructions}</p>)}
                 </div>
-                <div>
-                    <label >Imagen URL</label>
-                    <input type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
+                <div className={styles.recipeContainer}>
+                    <label >Image URL</label>
+                    <input className={styles.imput} type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
                 </div>
-                <div >
+                <div className={styles.recipeContainer} >
                     <select  onChange={(e)=> handleSelect(e)}>
-                        <option value="" hidden name="diets" >Seleccione Dietas</option>
+                        <option value="" hidden name="diets" >Select Diets</option>
                             {allDiets?.map(diet => {
                             return ( <option value={diet.id} key={diet.id}>{diet.name}</option>)
                             })
                             } 
                     </select>
-                    <ul >
-                        <li>                            
+                    <ul className={styles.recipeContainer}>
+                        <p>                            
                             {post.diets.map(diet => 
                             <div>
                                 <p>{allDiets?.find(element => element.id === diet)?.name}</p>
                                 <button  onClick={() => handleDietDelete(diet)}>x</button>
                             </div>
                             )}
-                        </li>
+                        </p>
                     </ul>
                 </div>
-                <button  type="submit" onClick={(e) => handleSubmit(e)}>Crear Receta</button>
-            </form>
+                <div className={styles.recipeContainer}>
+                <button className={styles.botonCreateRecipe}  type="submit" onClick={(e) => handleSubmit(e)}>Crear Receta</button>
+                </div> 
+           </form>
+            
         </div>
     )
 

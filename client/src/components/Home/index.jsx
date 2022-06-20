@@ -78,7 +78,6 @@ import styles from '../Home/Home.module.css'
         <div className={styles.imputContainer}>
             <select  onChange={e => handleSortedRecipesTitle(e)}>
                 <option value="" >Select Order Name</option>
-                <option value="" >Disordered</option>
                 <option value= "Asc">Ascendant</option>
                 <option value ="des">Descendant</option>
             </select>
