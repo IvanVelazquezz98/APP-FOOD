@@ -122,7 +122,7 @@ import styles from '../Home/Home.module.css'
                           <Card 
                                 image={recipe.image}
                                 title={recipe.title} 
-                                diets={recipe.diets.map(r => <p  className={styles.diets}> {r.name}</p>)} 
+                                diets={recipe.diets.map(r => <p key={r.id}  className={styles.diets}> {r.name}</p>)} 
                                 key={recipe.id} >
                            </Card>
                         </Link>

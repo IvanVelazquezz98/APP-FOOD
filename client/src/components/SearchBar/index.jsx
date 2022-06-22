@@ -26,7 +26,7 @@ export default function SearchBar({title , setCurrentPage}){
      function handleSubmit(e){ 
         e.preventDefault(); 
         if(!name){ 
-        alert("ingrese un nombre") 
+        alert("enter a valid name") 
         }else{ 
          
         dispatch(searchRecipe(name))

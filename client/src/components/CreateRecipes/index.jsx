@@ -7,15 +7,29 @@ import styles from '../CreateRecipes/CreateRecipes.module.css'
 
 function validate(post){
     let errors = {}
-    if (!post.title){
-        errors.title = "Your recipe needs a title!"
-    } else if (!post.summary){
-        errors.summary = "Give a brief explanation of your recipe"
-    } else if (!post.instructions){
-        errors.instructions = "Dont forget to tell us how you did it"
+    post.title
+    ? (errors.title = "")
+    :(errors.title) = "Your recipe needs a title!"
+
+    post.summary
+    ? (errors.summary = "")
+    : (errors.summary = "Give a brief explanation of your recipe")
+       
+   post.instructions
+   ? (errors.instructions = "")
+   :(errors.instructions = "Dont forget to tell us how you did it")
+
+   post.diets.lenght < 1 
+   ?(errors.diets = "Choose at least one diet")
+   :(errors.diets = "")
+   parseInt(post.healthScore) <1
+   ? (errors.healthScore = "Cant take a number bellow 1" )
+   :(errors.healthScore= "")
+   
+ return errors
     }
-    return errors
-}
+   
+
 
    
 
@@ -64,17 +78,36 @@ export default function RecipeCreate(){
     }
 
     function handleSubmit(e){
-        if(!post.title && !post.summary){
+        const maximo = 35
+
+       
+
+
+        if(!post.title ){
             e.preventDefault()
-            return alert("La receta necesita un título y un resumen")
-        } else if(!post.diets.length){
+            return alert("The recipe needs a title")
+        } if (post.title.length > maximo){
             e.preventDefault()
-            return alert("Necesitas agregar al menos una dieta para la receta")
+            return alert("the title cannot exceed 35 characters")
+        }
+        else if(!post.summary) {
+            e.preventDefault()
+            return alert ("The recipe needs a summary")    
+        } 
+        else if (post.healthScore < 0 && post.healthScore > 100){
+            e.preventDefault()
+            return alert ("the health score cannot be less than 1 or greater than 100")
+        }
+        else if(!post.diets.length){
+            e.preventDefault()
+            return alert("You need to add at least one diet for the recipe")
         } else {
-            if (!post.image) {
-                post.image = "https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466_960_720.jpg"
-            }
-            dispatch(postRecipe(post))
+            if(!post.image.includes("https://") && !post.image.includes("http://")){
+                e.preventDefault()
+                return alert ("This isn't a valid image address")}
+   
+
+           dispatch(postRecipe(post))
             alert("Recipe sucessfully created!")
             setPost({
                 title: "",
@@ -84,11 +117,13 @@ export default function RecipeCreate(){
                 instructions: "",
                 image: "",
                 diets: []
-            })
+                })
             history.push('/home')
+           
+             
+         }
         }
-    }
-
+    
     return(
         <div className={styles.firstContainer}>
             <div >

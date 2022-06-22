@@ -36,31 +36,35 @@ export function getDiets(){
 //promesas
 export function getRecipes(){
     return function(dispatch){
+        try{
              axios.get("http://localhost:3001/recipes")
             .then(response => {
                 return dispatch({
                     type: GET_RECIPES,
                     payload: response.data
                 })
-    })
+        })
+    } catch (error){
+        console.log(error)
+    }
+
 }}
 
 export function getDetail(id){
-    return function(dispatch){
+    return async function(dispatch){
         try{
-        axios.get('http://localhost:3001/recipes/' + id)
-        .then(response => {
+         var json = await axios.get('http://localhost:3001/recipes/' + id)
             return dispatch ({
                 type: GET_DETAIL,
-                payload: response.data
-            })
-        })
-    } catch (error) {
-    console.log(error)
-
+                payload: json.data})
+            }catch(error){
+            console.log(error)
         }
-    }
+     } 
+
+        
 }
+        
 
 export function searchRecipe(name){
     return async function(dispatch){
