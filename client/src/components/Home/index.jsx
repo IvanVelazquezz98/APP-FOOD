@@ -116,7 +116,14 @@ import styles from '../Home/Home.module.css'
         
         <div  >
             <div className={styles.recipeContainer}>
-                {currentRecipes?.map(recipe => {
+                {(currentRecipes?.length == 0)
+                ?
+                <div >
+                      <p>Loading ...</p>
+                    </div> 
+                :
+                
+                currentRecipes?.map(recipe => {
                     return (
                         <Link className={styles.link} to={`/recipe/${recipe.id}`}>
                           <Card 

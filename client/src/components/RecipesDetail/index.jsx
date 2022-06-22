@@ -24,6 +24,7 @@ export default function RecipesDetail (id) {
                 <div className={styles.firstContainer}>
                 <Link to="/Home">
                     <button className={styles.home} >Go back!</button>
+
                 </Link>
             </div>
                 
@@ -48,6 +49,8 @@ export default function RecipesDetail (id) {
                         <h3 className={styles.title}>Instrucciones</h3>
                         <p className={styles.content}>{detailRecipe.instructions ? (detailRecipe.instructions) : (<p>-</p>) }</p>
                     </div>
+                    
+
                     
                 
             }
