@@ -1,9 +1,9 @@
 import react from 'react'
 
-import { Link , useParams} from "react-router-dom"
+import { Link , useParams , useHistory} from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { useEffect } from "react";
-import { getDetail } from '../../redux/actions'
+import { getDetail , clearPage } from '../../redux/actions'
 import styles from '../RecipesDetail/RecipesDetail.module.css'
 
 
@@ -15,6 +15,12 @@ export default function RecipesDetail (id) {
 
     useEffect(() => {
         dispatch(getDetail(recipeId.id))
+
+        //return() =>{
+          //  dispatch(clearPage())
+        //}
+            
+        
     },[dispatch,id])
 
   

@@ -63,12 +63,16 @@ export default function RecipeCreate(){
 
     
     function handleSelect(e){
-        setPost({
-            ...post,
-            diets: [...post.diets, e.target.value]
-        })
-    //    console.log(post)
-    }
+ 
+                setPost({
+                    ...post,
+                    diets: [...new Set ([...post.diets , e.target.value])]
+                })
+                console.log("ola", post.diets )   
+         }
+    
+    
+    //}
 
     function handleDietDelete(deleteThis){
         setPost({
@@ -79,9 +83,6 @@ export default function RecipeCreate(){
 
     function handleSubmit(e){
         const maximo = 35
-
-       
-
 
         if(!post.title ){
             e.preventDefault()

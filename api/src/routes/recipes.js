@@ -12,7 +12,7 @@ router.get("/", async (req,res,next) =>{ // ver si sin "/" funciona
             if(recipe.length){
                 res.status(200).send(recipe)
             } else {
-                res.status(404).send("Recipe doesn´t exist")  
+                res.status(404).send("Recipe doesn't exist")  
             }
         } else {
             res.status(200).send(allRecipes)
@@ -29,7 +29,7 @@ router.get("/:idRecipe", async(req,res,next) => {
         const id = req.params.idRecipe
         const detailById = await searchById(id)
         if (!detailById){ 
-            return res.status(404).send("Recipe by Id doesn´t exist")
+            return res.status(404).send("Recipe by Id doesn't exist")
         }
         res.status(200).send(detailById)
 

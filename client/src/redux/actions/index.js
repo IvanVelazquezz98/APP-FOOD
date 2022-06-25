@@ -10,7 +10,7 @@ export function getFullRecipes(){
 
             return dispatch ({type:GET_RECIPES, payload:{
                 recipes:response.data,
-                currentPage:0
+                currentPage:1
             }})
         } catch (error){
             return dispatch({type: Error, payload:error.response.data})

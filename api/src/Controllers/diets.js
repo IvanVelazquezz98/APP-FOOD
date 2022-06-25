@@ -5,7 +5,7 @@ const { API_KEY } = process.env;
 
 const preLoadDiets = async() => {
     try {
-        const apiInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
+        const apiInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=30`)
         const apiDiets = apiInfo.data?.results.map(element => element.diets)
         const repeatedDiets = apiDiets.flat()
         const finalListOfDiets = [...new Set(repeatedDiets)] 
