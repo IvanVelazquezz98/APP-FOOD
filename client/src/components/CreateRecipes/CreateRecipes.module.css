@@ -31,8 +31,6 @@
     background-color:#f8db34;
     border-radius: 00.5rem;
     transition: transform .7s;
-    border-color: #080101;
-    display:block;
    
 }
 
@@ -42,10 +40,11 @@
         box-shadow: 0 0 10px #0c0c0b ;
         transition-delay: .2s;
         color: rgb(7, 7, 1);
+        text-decoration: none;
 }
 
 .botonCreateRecipe{
-    text-decoration:none;
+    text-decoration: none;
     font-weight:10px;
     font-size:10px;
     color:#080101;
@@ -89,3 +88,17 @@
          color: rgb(7, 7, 1);
  }
  
+ .botonDelete {
+    border-radius: 5px;
+    background-color: #f8db34;
+    border: #f8db34 ;
+    border-bottom: 2px;
+ }
+
+.botonDelete:hover{
+     transform: scale(1.05) ;
+     background:#ffff51;
+     box-shadow: 0 0 10px #0c0c0b ;
+     transition-delay: .2s;
+     color: rgb(7, 7, 1); 
+}

@@ -94,6 +94,11 @@ import styles from '../Home/Home.module.css'
                     ))}
                 </select>
         </div>
+        <div>
+            <Link to="/About">
+            <button className={styles.about}> About</button>
+            </Link>
+        </div>
 
         <div className={styles.createRecipe}> 
             <Link to="/CreateRecipe">

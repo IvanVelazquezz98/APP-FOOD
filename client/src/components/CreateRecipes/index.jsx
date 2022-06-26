@@ -177,7 +177,7 @@ export default function RecipeCreate(){
                             {post.diets.map(diet => 
                             <div>
                                 <p>{allDiets?.find(element => element.id === diet)?.name}</p>
-                                <button  onClick={() => handleDietDelete(diet)}>x</button>
+                                <button className={styles.botonDelete} onClick={() => handleDietDelete(diet)}>x</button>
                             </div>
                             )}
                         </p>

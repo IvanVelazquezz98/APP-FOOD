@@ -25,6 +25,9 @@
     width: 15px;
     flex-direction: row;
     list-style: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
     }
 
     
